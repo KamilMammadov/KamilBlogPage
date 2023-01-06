@@ -1,12 +1,15 @@
 ﻿using KamilBlog.Areas.Admin.ViewModels;
 using KamilBlog.Database;
 using KamilBlog.Database.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace KamilBlog.Areas.Admin.Controllers
 {
     [Area("admin")]
+    [Route("admin/blog")]
     public class BlogController : Controller
     {
         private readonly DataContext _dbContext;

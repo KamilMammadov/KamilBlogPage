@@ -11,5 +11,9 @@ namespace KamilBlog.Database
 
         }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<About> Abouts { get; set; }
+
+
     }
 }
