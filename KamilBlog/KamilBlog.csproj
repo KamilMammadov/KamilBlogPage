@@ -10,7 +10,6 @@
     <Folder Include="Areas\Admin\" />
     <Folder Include="Areas\Client\Controllers\" />
     <Folder Include="Areas\Client\ViewModels\" />
-    <Folder Include="Database\Models\" />
   </ItemGroup>
 
   <ItemGroup>

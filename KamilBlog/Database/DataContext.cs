@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using KamilBlog.Database.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace KamilBlog.Database
 {
@@ -9,5 +10,6 @@ namespace KamilBlog.Database
         {
 
         }
+        public DbSet<Blog> Blogs { get; set; }
     }
 }
