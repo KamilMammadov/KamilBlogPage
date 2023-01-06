@@ -28,8 +28,8 @@ namespace KamilBlog.Areas.Client.Controllers
        
         
         
-        [HttpGet("blog", Name = "client-home-blog")]
-        public async Task<IActionResult> Blog(int id)
+        [HttpGet("blog/{id}", Name = "client-home-blog")]
+        public async Task<IActionResult> Blog([FromRoute]int id)
         {
             var blog = await _dbContext.Blogs.FirstOrDefaultAsync(b => b.Id == id);
             if (blog == null)return NotFound();

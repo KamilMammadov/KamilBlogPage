@@ -2,8 +2,9 @@
 
 namespace KamilBlog.Areas.Admin.ViewModels
 {
-    public class AddViewModel
+    public class UpdateViewModel
     {
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
