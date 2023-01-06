@@ -1,3 +1,6 @@
+using KamilBlog.Database;
+using Microsoft.EntityFrameworkCore;
+
 namespace KamilBlog
 {
     public class Program
@@ -8,6 +11,12 @@ namespace KamilBlog
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<DataContext>(o =>
+            {
+                o.UseSqlServer(builder.Configuration.GetConnectionString("KamilPC"));
+            });
+
 
             var app = builder.Build();
 
@@ -25,6 +34,11 @@ namespace KamilBlog
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.MapControllerRoute(
+             name: "default",
+             pattern: "{area=exists}/{controller=home}/{action=index}");
+
 
             app.MapRazorPages();
 
