@@ -9,7 +9,7 @@
             @foreach (var blog in Model)
             {
                 <div class="post-preview">
-                    <a href="~/assets/post.html">
+                    <a asp-route="client-home-blog" asp-route-id="@blog.Id">
                         <h2 class="post-title">@blog.Name</h2>
                         <h3 class="post-subtitle">@blog.ContentName</h3>
                     </a>

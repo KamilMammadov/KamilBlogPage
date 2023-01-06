@@ -25,5 +25,25 @@ namespace KamilBlog.Areas.Client.Controllers
 
             return View(model);
         }
+       
+        
+        
+        [HttpGet("blog", Name = "client-home-blog")]
+        public async Task<IActionResult> Blog(int id)
+        {
+            var blog = await _dbContext.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+            if (blog == null)return NotFound();
+
+            var newblog = new ListBlogViewModel
+            {
+                Name = blog.Name,
+                ContentName = blog.ContentName,
+                Content = blog.Content,
+              
+
+            };
+
+            return View(newblog);
+        }
     }
 }
