@@ -1,4 +1,5 @@
 ﻿using KamilBlog.Database;
+using KamilBlog.Database.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +30,19 @@ namespace KamilBlog.Areas.Admin.Controllers
             if (model is null) return NotFound();
 
             return View(model);
+        }
+        [HttpPost("update/{id}", Name = "admin-about-update")]
+        public async Task<IActionResult> UpdateAsync(About about)
+        {
+            var model = await _dataContext.Abouts.FirstOrDefaultAsync(a => a.Id == about.Id);
+            if (model is null) return NotFound();
+
+            model.Name = about.Name;
+            model.ContentName = about.ContentName;
+            model.Content=about.Content;
+
+            await _dataContext.SaveChangesAsync();
+            return RedirectToRoute("admin-about-list");
         }
 
     }
